@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.stepyen.xframe.base.SBaseActivity;
+import com.stepyen.xframe.base.BaseLoadActivity;
 import com.stepyen.xframe.di.component.AppComponent;
 import com.stepyen.xframe.widget.actionbar.TitleBar;
 
@@ -18,7 +18,7 @@ import ${packageName}.R;
 <#import "root://activities/MVPXFrameTemplate/globals.xml.ftl" as gb>
 
 <@gb.fileHeader />
-public class ${pageName}Activity extends SBaseActivity<${pageName}Presenter> implements ${pageName}Contract.View {
+public class ${pageName}Activity extends BaseLoadActivity<${pageName}Presenter> implements ${pageName}Contract.View {
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {

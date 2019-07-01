@@ -1,6 +1,6 @@
 package ${contractPackageName};
 
-import com.stepyen.xframe.mvp.ILoadView;
+import com.stepyen.xframe.mvp.IView;
 import com.stepyen.xframe.mvp.IModel;
 
 <#import "root://activities/MVPXFrameTemplate/globals.xml.ftl" as gb>
@@ -8,7 +8,7 @@ import com.stepyen.xframe.mvp.IModel;
 <@gb.fileHeader />
 public interface ${pageName}Contract {
    
-    interface View extends ILoadView {
+    interface View extends IView {
 
     }
    
