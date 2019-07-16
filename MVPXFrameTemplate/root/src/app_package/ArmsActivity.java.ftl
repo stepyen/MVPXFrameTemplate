@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.view.View;
 
-import com.stepyen.xframe.base.BaseLoadActivity;
+import com.stepyen.commonsdk.base.AppBaseActivity;
 import com.stepyen.xframe.di.component.AppComponent;
-import com.stepyen.xframe.widget.actionbar.TitleBar;
+import com.stepyen.xui.widget.actionbar.TitleBar;
 
 import ${componentPackageName}.Dagger${pageName}Component;
 import ${contractPackageName}.${pageName}Contract;
@@ -18,7 +19,7 @@ import ${packageName}.R;
 <#import "root://activities/MVPXFrameTemplate/globals.xml.ftl" as gb>
 
 <@gb.fileHeader />
-public class ${pageName}Activity extends BaseLoadActivity<${pageName}Presenter> implements ${pageName}Contract.View {
+public class ${pageName}Activity extends AppBaseActivity<${pageName}Presenter> implements ${pageName}Contract.View {
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
@@ -31,8 +32,8 @@ public class ${pageName}Activity extends BaseLoadActivity<${pageName}Presenter> 
     }
 	
 	@Override
-    protected TitleBar initTitleBar() {
-        TitleBar titleBar = super.initTitleBar();
+    protected View initTitleBar() {
+        TitleBar titleBar = (TitleBar) super.initTitleBar();
         return titleBar;
     }
 
@@ -45,5 +46,11 @@ public class ${pageName}Activity extends BaseLoadActivity<${pageName}Presenter> 
     public void initData(@Nullable Bundle savedInstanceState) {
 		 super.initData(savedInstanceState);
     }
+	
+	@Override
+    public void onLoad() {
+        
+    }
+
 
 }
