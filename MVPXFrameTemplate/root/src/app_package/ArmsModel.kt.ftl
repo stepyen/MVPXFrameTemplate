@@ -2,21 +2,22 @@ package ${modelPackageName}
 
 import android.app.Application
 import com.google.gson.Gson
-import com.jess.arms.integration.IRepositoryManager
-import com.jess.arms.mvp.BaseModel
+import com.stepyen.xframe.integration.IRepositoryManager
+import com.stepyen.xframe.mvp.BaseModel
+import javax.inject.Inject
+
 
 <#if needActivity && needFragment>
-import com.jess.arms.di.scope.ActivityScope
+import com.stepyen.xframe.di.scope.ActivityScope
 <#elseif needActivity>
-import com.jess.arms.di.scope.ActivityScope
+import com.stepyen.xframe.di.scope.ActivityScope
 <#elseif needFragment>
-import com.jess.arms.di.scope.FragmentScope
+import com.stepyen.xframe.di.scope.FragmentScope
 </#if>
-import javax.inject.Inject
 
 import ${contractPackageName}.${pageName}Contract
 
-<#import "root://activities/MVPArmsTemplate/globals.xml.ftl" as gb>
+<#import "root://activities/MVPXFrameTemplate/globals.xml.ftl" as gb>
 
 <@gb.fileHeader />
 <#if needActivity && needFragment>

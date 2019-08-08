@@ -2,22 +2,22 @@ package ${presenterPackageName}
 
 import android.app.Application
 
-import com.jess.arms.integration.AppManager
+import com.stepyen.xframe.integration.AppManager
 <#if needActivity && needFragment>
-import com.jess.arms.di.scope.ActivityScope
+import com.stepyen.xframe.di.scope.ActivityScope
 <#elseif needActivity>
-import com.jess.arms.di.scope.ActivityScope
+import com.stepyen.xframe.di.scope.ActivityScope
 <#elseif needFragment>
-import com.jess.arms.di.scope.FragmentScope
+import com.stepyen.xframe.di.scope.FragmentScope
 </#if>
-import com.jess.arms.mvp.BasePresenter
-import com.jess.arms.http.imageloader.ImageLoader
+import com.stepyen.xframe.mvp.BasePresenter
+import com.stepyen.xframe.http.imageloader.ImageLoader
 import me.jessyan.rxerrorhandler.core.RxErrorHandler
 import javax.inject.Inject
 
 import ${contractPackageName}.${pageName}Contract
 
-<#import "root://activities/MVPArmsTemplate/globals.xml.ftl" as gb>
+<#import "root://activities/MVPXFrameTemplate/globals.xml.ftl" as gb>
 
 <@gb.fileHeader />
 <#if needActivity && needFragment>

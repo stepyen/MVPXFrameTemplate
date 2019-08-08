@@ -1,11 +1,14 @@
 package ${ativityPackageName}
 
-import android.content.Intent
 import android.os.Bundle
-
-import com.jess.arms.base.BaseActivity
-import com.jess.arms.di.component.AppComponent
-import com.jess.arms.utils.ArmsUtils
+import android.view.View
+import androidx.annotation.NonNull
+import androidx.annotation.Nullable
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.stepyen.commonsdk.base.AppBaseActivity
+import com.stepyen.commonsdk.constant.RouterHub
+import com.stepyen.xframe.di.component.AppComponent
+import com.stepyen.xui.widget.actionbar.TitleBar
 
 import ${componentPackageName}.Dagger${pageName}Component
 import ${moudlePackageName}.${pageName}Module
@@ -15,7 +18,7 @@ import ${presenterPackageName}.${pageName}Presenter
 import ${packageName}.R
 
 
-<#import "root://activities/MVPArmsTemplate/globals.xml.ftl" as gb>
+<#import "root://activities/MVPXFrameTemplate/globals.xml.ftl" as gb>
 
 <@gb.fileHeader />
 /**
@@ -31,7 +34,8 @@ import ${packageName}.R
  * }
  * }
  */
-class ${pageName}Activity : BaseActivity<${pageName}Presenter>() , ${pageName}Contract.View {
+@Route(path = RouterHub.APP)
+class ${pageName}Activity : AppBaseActivity<${pageName}Presenter>() , ${pageName}Contract.View {
 
     override fun setupActivityComponent(appComponent:AppComponent) {
         Dagger${pageName}Component //如找不到该类,请编译一下项目
@@ -42,34 +46,26 @@ class ${pageName}Activity : BaseActivity<${pageName}Presenter>() , ${pageName}Co
                 .inject(this)
     }
 
+    override fun initTitleBar(): View {
+        return super.initTitleBar() as TitleBar
+    }
 
-    override fun initView(savedInstanceState:Bundle?):Int {
-              return R.layout.${activityLayoutName} //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
+    override fun getLayoutId(): Int {
+        return R.layout.${activityLayoutName}
     }
 
 
-
-    override fun initData(savedInstanceState:Bundle?) {
-
-    }
-
-
-    override fun showLoading() {
+    override fun initData(@Nullable savedInstanceState: Bundle?) {
+        super.initData(savedInstanceState)
 
     }
 
-    override fun hideLoading() {
+    override fun onLoad() {
 
-    }
-
-    override fun showMessage(message:String) {
-        ArmsUtils.snackbarText(message)
-    }
-    override fun launchActivity(intent:Intent) {
-        ArmsUtils.startActivity(intent)
-    }
-
-    override fun killMyself() {
-        finish()
     }
 }
+
+
+
+
+

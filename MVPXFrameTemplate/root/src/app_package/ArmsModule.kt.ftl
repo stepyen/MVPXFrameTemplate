@@ -1,11 +1,11 @@
 package ${moudlePackageName}
 
 <#if needActivity && needFragment>
-import com.jess.arms.di.scope.ActivityScope
+import com.stepyen.xframe.di.scope.ActivityScope
 <#elseif needActivity>
-import com.jess.arms.di.scope.ActivityScope
+import com.stepyen.xframe.di.scope.ActivityScope
 <#elseif needFragment>
-import com.jess.arms.di.scope.FragmentScope
+import com.stepyen.xframe.di.scope.FragmentScope
 </#if>
 
 import dagger.Module
@@ -14,7 +14,7 @@ import dagger.Provides
 import ${contractPackageName}.${pageName}Contract
 import ${modelPackageName}.${pageName}Model
 
-<#import "root://activities/MVPArmsTemplate/globals.xml.ftl" as gb>
+<#import "root://activities/MVPXFrameTemplate/globals.xml.ftl" as gb>
 
 <@gb.fileHeader />
 @Module
