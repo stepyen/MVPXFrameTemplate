@@ -13,6 +13,7 @@ import com.stepyen.xui.widget.actionbar.TitleBar;
 import ${componentPackageName}.Dagger${pageName}Component
 import ${contractPackageName}.${pageName}Contract
 import ${presenterPackageName}.${pageName}Presenter
+import ${moudlePackageName}.${pageName}Module
 
 import ${packageName}.R
 
@@ -20,20 +21,7 @@ import ${packageName}.R
 <#import "root://activities/MVPXFrameTemplate/globals.xml.ftl" as gb>
 
 <@gb.fileHeader />
-/**
- * 如果没presenter
- * 你可以这样写
- *
- * @FragmentScope(請注意命名空間) class NullObjectPresenterByFragment
- * @Inject constructor() : IPresenter {
- * override fun onStart() {
- * }
- *
- * override fun onDestroy() {
- * }
- * }
- */
-class ${pageName}Fragment : BaseFragment<${pageName}Presenter>() , ${pageName}Contract.View{
+class ${pageName}Fragment : AppBaseFragment<${pageName}Presenter>() , ${pageName}Contract.View{
     companion object {
     fun newInstance():${pageName}Fragment {
         val fragment = ${pageName}Fragment()
@@ -51,7 +39,7 @@ class ${pageName}Fragment : BaseFragment<${pageName}Presenter>() , ${pageName}Co
                 .inject(this)
     }
 
-	override fun initTitleBar(): View {
+	override fun initTitleBar(): View? {
         return super.initTitleBar() as TitleBar
     }
 
@@ -60,7 +48,7 @@ class ${pageName}Fragment : BaseFragment<${pageName}Presenter>() , ${pageName}Co
     }
 
     override fun initData(savedInstanceState:Bundle?) {
-		uper.initData(savedInstanceState)
+		super.initData(savedInstanceState)
     }
 
 	override fun onLoad() {
@@ -71,4 +59,5 @@ class ${pageName}Fragment : BaseFragment<${pageName}Presenter>() , ${pageName}Co
     override fun setData(data: Any?) {
 
     }
+}
 

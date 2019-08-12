@@ -21,19 +21,6 @@ import ${packageName}.R
 <#import "root://activities/MVPXFrameTemplate/globals.xml.ftl" as gb>
 
 <@gb.fileHeader />
-/**
- * 如果没presenter
- * 你可以这样写
- *
- * @ActivityScope(請注意命名空間) class NullObjectPresenterByActivity
- * @Inject constructor() : IPresenter {
- * override fun onStart() {
- * }
- *
- * override fun onDestroy() {
- * }
- * }
- */
 @Route(path = RouterHub.APP)
 class ${pageName}Activity : AppBaseActivity<${pageName}Presenter>() , ${pageName}Contract.View {
 
@@ -46,7 +33,7 @@ class ${pageName}Activity : AppBaseActivity<${pageName}Presenter>() , ${pageName
                 .inject(this)
     }
 
-    override fun initTitleBar(): View {
+    override fun initTitleBar(): View? {
         return super.initTitleBar() as TitleBar
     }
 
